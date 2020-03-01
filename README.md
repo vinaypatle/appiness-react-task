@@ -1,3 +1,14 @@
+### How to run?
+To run this app, you need to install Node(v10.0 or above). After installing Node, open your terminal and run following commands:
+```
+git clone https://github.com/vinaypatle/appiness-react-task.git
+cd appiness-react-task
+npm install
+npm start
+```
+Now to see this app in action, open your browser and navigate to http://localhost:3000/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
