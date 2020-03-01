@@ -1,0 +1,8 @@
+.User {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 2px;
+    font-weight: 500;
+}

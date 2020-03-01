@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import Dashboard from './containers/Dashboard/Dashboard';
+import Auth from './containers/Auth/Auth';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="NavBar">
+        <Link to="/login">LOGIN</Link>
+        <Link to="/">HOME</Link>
+      </nav>
+      {!props.isAuth ? (
+        <Switch>
+          <Route path="/login">
+            <Auth />
+          </Route>
+          <Redirect to={"/login"} />
+        </Switch>
+      ) : (
+          <Switch>
+            <Route path="/login">
+              <Auth />
+            </Route>
+            <Route path="/">
+              <Dashboard />
+            </Route>
+          </Switch>
+        )}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  isAuth: state.isAuth
+});
+
+export default connect(mapStateToProps)(App);
